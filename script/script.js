@@ -2,9 +2,10 @@ var flags = new Array(0, 0, 0, 0, 0, 0, 0, 0);
 
 $('.name-overlay .input-name').focus();
 
-$('.name-overlay .input-name').keypress(function(event) {
+$('.name-overlay .input-name').keyup(function(event) {
 	if(event.which == 13) {
-		if($('.name-overlay .input-name').val() != 'xxx') {
+		var name = $('.name-overlay .input-name').val();
+		if( name != '王天格' && name != '格格' && name != 'gege' && name !='gg' && name != 'wtg') {
 			$('.name-overlay .warning').css('color', 'red');
 			return;
 		}
@@ -12,6 +13,10 @@ $('.name-overlay .input-name').keypress(function(event) {
 		$(this).removeClass('input-breath');
 		$(this).addClass('input-shrink');
 		$('.name-overlay .circle').addClass('circle-spread');
+	} else {
+		if($('.name-overlay .warning')){
+            $('.name-overlay .warning').css('color','black');
+		}
 	}
 });
 
@@ -106,7 +111,7 @@ $('.thanks').bind('webkitAnimationEnd', function() {
 });
 
 function calcDate() {
-	var date1=new Date(2016,0,1,0,0);
+	var date1= new Date(2016,8,7,12,14);
 	var date2=new Date();
 	var date3=date2.getTime()-date1.getTime();
 
